@@ -1,0 +1,33 @@
+{
+  "name": "@call-me-dev/byte-array",
+  "description": "ActionScript 3.0 ByteArray integration in Javascript",
+  "version": "0.1.0",
+  "main": ".dist/byte-array.js",
+  "types": ".dist/byte-array.d.ts",
+  "scripts": {
+    "build": "rm -rf .dist/ && yarn build:types && yarn build:js",
+    "build:js": "swc src/**/*.ts -d .dist/ --ignore **/*.spec.ts",
+    "build:types": "tsc",
+    "lint": "eslint src/**/*",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@swc/cli": "^0.1.62",
+    "@swc/core": "^1.3.41",
+    "@swc/jest": "^0.2.24",
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.3",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "jest": "^29.5.0",
+    "prettier": "^2.8.5",
+    "typescript": "^5.0.2"
+  },
+  "packageManager": "yarn@3.5.0"
+}
