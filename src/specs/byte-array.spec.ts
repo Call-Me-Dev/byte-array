@@ -36,4 +36,21 @@ describe('ByteArray', () => {
       expect(input.readByteOffset).toEqual(2);
     });
   });
+
+  describe('readUnsignedShort', () => {
+    it('Should read the only unsigned byte in the byte array, and advance the read position by 2', () => {
+      const input = new ByteArray(Buffer.from([0xff, 0xff]));
+
+      expect(input.readUnsignedShort()).toEqual(65535);
+      expect(input.readByteOffset).toEqual(2);
+    });
+
+    it('Should read each unsigned short from the byte array in order, updating the read position after each read by 4 in total', () => {
+      const input = new ByteArray(Buffer.from([0xff, 0xff, 0x01, 0x01]));
+
+      expect(input.readUnsignedShort()).toEqual(65535);
+      expect(input.readUnsignedShort()).toEqual(257);
+      expect(input.readByteOffset).toEqual(4);
+    });
+  });
 });
