@@ -15,6 +15,7 @@
   - [IByteArray Interface](#ibytearray-interface)
     - [`readByte(): number`](#readbyte-number)
     - [`readUnsignedByte(): number`](#readunsignedbyte-number)
+    - [`readUnsignedShort(): number`](#readunsignedshort-number)
 - 🚀 [Getting Started](#getting-started)
 - 📟 [Commands](#commands)
 - 👏 [Contributing](#contributing)
@@ -42,6 +43,14 @@ Reads a byte from the byte array.
 Reads an unsigned byte from the byte array.
 
 **Returns:** An unsigned 8-bit integer between 0 and 255.
+
+---
+
+#### <a id="readunsignedshort-method" name="readunsignedshort-method">`readUnsignedShort(): number`</a>
+
+Reads an unsigned 16-bit integer from the byte array.
+
+**Returns:** An unsigned 16-bit integer between 0 and 65535.
 
 ---
 
