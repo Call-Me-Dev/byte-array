@@ -53,4 +53,18 @@ describe('ByteArray', () => {
       expect(input.readByteOffset).toEqual(4);
     });
   });
+
+  describe('readUTF', () => {
+    it('Should read a UTF-8 string from the byte array, with length of the first unsigned byte, and advance the read position accordingly', () => {
+      const input = new ByteArray(
+        Buffer.from([
+          0x00, 0x0b, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x5f, 0x77, 0x6f, 0x72,
+          0x6c, 0x64,
+        ])
+      );
+
+      expect(input.readUTF()).toEqual('hello_world');
+      expect(input.readByteOffset).toEqual(13);
+    });
+  });
 });

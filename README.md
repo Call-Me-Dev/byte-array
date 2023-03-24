@@ -54,6 +54,14 @@ Reads an unsigned 16-bit integer from the byte array.
 
 ---
 
+#### <a id="readutf-method" name="readutf-method">`readUTF(): string`</a>
+
+Reads a UTF-8 string from the byte array. The string must be preceded by an unsigned short indicating the length in bytes.
+
+**Returns:** A UTF-8 string.
+
+---
+
 ## <a id="getting-started" name="getting-started">🚀 Getting Started</a>
 
 > ⛔️ **Before going any further** make sure you have the [NodeJS LTS](https://nodejs.org/en/) installed.

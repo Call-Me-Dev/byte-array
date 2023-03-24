@@ -19,6 +19,15 @@ export interface IByteArray {
    * @returns {number} An unsigned 16-bit integer between 0 and 65535.
    */
   readUnsignedShort(): number;
+
+  /**
+   * Reads a UTF-8 string from the byte array.
+   *
+   * The string must be preceded by an unsigned short indicating the length in bytes.
+   *
+   * @returns {string} A UTF-8 string.
+   */
+  readUTF(): string;
 }
 
 export class ByteArray implements IByteArray {
@@ -40,5 +49,14 @@ export class ByteArray implements IByteArray {
     this.readByteOffset += 2;
 
     return this.buffer.readUInt16BE(offset);
+  }
+
+  readUTF(): string {
+    const length = this.readUnsignedShort();
+    const offset = this.readByteOffset;
+
+    this.readByteOffset += length;
+
+    return this.buffer.slice(offset, offset + length).toString();
   }
 }
