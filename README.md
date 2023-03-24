@@ -13,9 +13,10 @@
 ## 📝 Table of contents
 - 📖 [Documentation](#documentation)
   - [IByteArray Interface](#ibytearray-interface)
-    - [`readByte(): number`](#readbyte-number)
-    - [`readUnsignedByte(): number`](#readunsignedbyte-number)
-    - [`readUnsignedShort(): number`](#readunsignedshort-number)
+    - [`readByte(): number`](#readbyte-method)
+    - [`readUnsignedByte(): number`](#readunsignedbyte-method)
+    - [`readUnsignedShort(): number`](#readunsignedshort-method)
+    - [`readUTF(): string`](#readutf-method)
 - 🚀 [Getting Started](#getting-started)
 - 📟 [Commands](#commands)
 - 👏 [Contributing](#contributing)
