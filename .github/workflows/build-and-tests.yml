@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: latest
+      - name: 💿 Install node_modules
+        run: yarn --immutable --inline-builds
       - name: 🛠️ Build
         run: yarn build
 
@@ -23,5 +25,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: latest
+      - name: 💿 Install node_modules
+        run: yarn --immutable --inline-builds
       - name: 🧪 Unitary tests
         run: yarn test:unitary
