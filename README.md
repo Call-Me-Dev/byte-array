@@ -71,7 +71,7 @@ Reads a UTF-8 string from the byte array. The string must be preceded by an unsi
 > ⛔ **Ensure if you are using Windows** to use the [Windows Subsystem for Linux](https://learn.microsoft.com/fr-fr/windows/wsl/install).
 
 1. Install the dependencies ```yarn install```
-2. Run the tests ```yarn test```
+2. Run the tests ```yarn test:unitary```
 3. *(optional)* Build the package locally ```yarn build```
 
 ## <a name="contributing">👏 Contributing</a>

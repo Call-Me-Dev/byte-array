@@ -24,3 +24,4 @@ jobs:
         with:
           node-version: latest
       - name: 🧪 Unitary tests
+        run: yarn test:unitary

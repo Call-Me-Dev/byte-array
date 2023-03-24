@@ -9,7 +9,7 @@
     "build:js": "swc src/**/*.ts -d .dist/ --ignore **/*.spec.ts",
     "build:types": "tsc",
     "lint": "eslint src/**/*",
-    "test": "jest"
+    "test:unitary": "jest"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
