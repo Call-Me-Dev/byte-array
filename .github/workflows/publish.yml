@@ -13,6 +13,14 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: latest
+      - name: 💿 Install node_modules
+        run: yarn --immutable --inline-builds
+      - name: 🛠️ Build
+        run: yarn build
+      - name: 📦 Publish package on NPM
+        run: yarn npm publish
+        env:
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: 📦 Publish package on NPM
         run: yarn npm publish
         env:
