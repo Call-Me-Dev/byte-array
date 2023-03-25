@@ -77,4 +77,16 @@ describe('ByteArray', () => {
       expect(input.readByteOffset).toEqual(13);
     });
   });
+
+  describe('writeByte', () => {
+    it('Should write a byte, and advance the write position accordingly', () => {
+      const input = new ByteArray(Buffer.alloc(0));
+
+      input.writeByte(127);
+
+      expect(input.readByte()).toEqual(127);
+      expect(input.readByteOffset).toEqual(1);
+      expect(input.writeByteOffset).toEqual(1);
+    });
+  });
 });

@@ -17,6 +17,7 @@
     - [`readUnsignedByte(): number`](#readunsignedbyte-method)
     - [`readUnsignedShort(): number`](#readunsignedshort-method)
     - [`readUTF(): string`](#readutf-method)
+    - [`writeByte(value: number): void`](#writebyte-method)
 - 🚀 [Getting Started](#getting-started)
 - 📟 [Commands](#commands)
 - 👏 [Contributing](#contributing)
@@ -60,6 +61,18 @@ Reads an unsigned 16-bit integer from the byte array.
 Reads a UTF-8 string from the byte array. The string must be preceded by an unsigned short indicating the length in bytes.
 
 **Returns:** A UTF-8 string.
+
+---
+
+#### <a id="writebyte-method" name="writebyte-method">`writeByte(value: number): void`</a>
+
+Writes an 8-bit integer to the byte array.
+
+**Parameters:**
+
+- `value` - An 8-bit integer to be written between -128 and 127.
+
+**Returns:** `void`
 
 ---
 
