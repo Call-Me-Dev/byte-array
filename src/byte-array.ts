@@ -1,4 +1,6 @@
 export interface IByteArray {
+  bytesAvailable: number;
+
   /**
    * Reads a byte from the byte array.
    *
@@ -35,6 +37,10 @@ export class ByteArray implements IByteArray {
   writeByteOffset = 0;
 
   constructor(private readonly buffer: Buffer) {}
+
+  get bytesAvailable(): number {
+    return this.buffer.byteLength - this.readByteOffset;
+  }
 
   readByte(): number {
     return this.buffer.readInt8(this.readByteOffset++);
