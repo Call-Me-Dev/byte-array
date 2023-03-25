@@ -4,5 +4,9 @@
     "parser": {
       "syntax": "typescript"
     }
+  },
+  "minify": true,
+  "module": {
+    "type": "commonjs"
   }
 }
