@@ -30,13 +30,22 @@ export interface IByteArray {
    * @returns {string} A UTF-8 string.
    */
   readUTF(): string;
+
+  /**
+   * Writes an 8-bit integer to the byte array.
+   *
+   * @see {@link https://help.adobe.com/fr_FR/FlashPlatform/reference/actionscript/3/flash/utils/ByteArray.html#writeByte()|AS3 ByteArray - writeByte()}
+   * @param {number} value - An 8-bit integer to be written between -128 and 127.
+   * @returns {void}
+   */
+  writeByte(value: number): void;
 }
 
 export class ByteArray implements IByteArray {
   readByteOffset = 0;
   writeByteOffset = 0;
 
-  constructor(private readonly buffer: Buffer) {}
+  constructor(private buffer: Buffer) {}
 
   get bytesAvailable(): number {
     return this.buffer.byteLength - this.readByteOffset;
@@ -64,5 +73,13 @@ export class ByteArray implements IByteArray {
     this.readByteOffset += length;
 
     return this.buffer.slice(offset, offset + length).toString();
+  }
+
+  writeByte(value: number): void {
+    const buffer = Buffer.alloc(1);
+    buffer.writeInt8(value);
+
+    this.buffer = Buffer.concat([this.buffer, buffer]);
+    this.writeByteOffset++;
   }
 }
