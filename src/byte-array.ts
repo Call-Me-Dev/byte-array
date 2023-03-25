@@ -1,9 +1,8 @@
-export interface IByteArray {
-  bytesAvailable: number;
-
+export interface IDataInput {
   /**
    * Reads a byte from the byte array.
    *
+   * @see {@link https://help.adobe.com/fr_FR/FlashPlatform/reference/actionscript/3/flash/utils/ByteArray.html#readByte() | AS3 ByteArray - readByte()}
    * @returns {number} An 8-bit integer between -128 and 127.
    */
   readByte(): number;
@@ -11,6 +10,7 @@ export interface IByteArray {
   /**
    * Reads an unsigned byte from the byte array.
    *
+   * @see {@link https://help.adobe.com/fr_FR/FlashPlatform/reference/actionscript/3/flash/utils/ByteArray.html#readUnsignedByte() | AS3 ByteArray - readUnsignedByte()}
    * @returns {number} An unsigned 8-bit integer between 0 and 255.
    */
   readUnsignedByte(): number;
@@ -18,6 +18,7 @@ export interface IByteArray {
   /**
    * Reads an unsigned 16-bit integer from the byte array.
    *
+   * @see {@link https://help.adobe.com/fr_FR/FlashPlatform/reference/actionscript/3/flash/utils/ByteArray.html#readUnsignedShort() | AS3 ByteArray - readUnsignedShort()}
    * @returns {number} An unsigned 16-bit integer between 0 and 65535.
    */
   readUnsignedShort(): number;
@@ -27,10 +28,13 @@ export interface IByteArray {
    *
    * The string must be preceded by an unsigned short indicating the length in bytes.
    *
+   * @see {@link https://help.adobe.com/fr_FR/FlashPlatform/reference/actionscript/3/flash/utils/ByteArray.html#readUTF() | AS3 ByteArray - readUTF()}
    * @returns {string} A UTF-8 string.
    */
   readUTF(): string;
+}
 
+export interface IDataOutput {
   /**
    * Writes an 8-bit integer to the byte array.
    *
@@ -41,7 +45,7 @@ export interface IByteArray {
   writeByte(value: number): void;
 }
 
-export class ByteArray implements IByteArray {
+export class ByteArray implements IDataInput, IDataOutput {
   readByteOffset = 0;
   writeByteOffset = 0;
 
