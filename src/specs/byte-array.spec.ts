@@ -1,6 +1,16 @@
 import { ByteArray } from '../byte-array';
 
 describe('ByteArray', () => {
+  describe('bytesAvailable', () => {
+    it('Should return the available bytes', () => {
+      const input = new ByteArray(Buffer.from([0xff, 0xff]));
+      expect(input.bytesAvailable).toEqual(2);
+
+      input.readByte();
+      expect(input.bytesAvailable).toEqual(1);
+    });
+  });
+
   describe('readByte', () => {
     it('Should read the only byte in the byte array, and advance the read position', () => {
       const input = new ByteArray(Buffer.from([0xff]));
