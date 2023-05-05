@@ -2,7 +2,7 @@
   <h1>@call-me-dev/byte-array</h1>
   <p> 
     <a href="./README.md" target="_blank">
-      <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg">
+      <img alt="Version" src="https://img.shields.io/badge/version-0.1.6-blue.svg">
     </a>
     <a href="./LICENSE" target="_blank">
       <img alt="License: MIT" src="https://img.shields.io/badge/License-©CallMeDev-green.svg" />
