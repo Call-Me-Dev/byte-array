@@ -78,6 +78,18 @@ describe('ByteArray', () => {
     });
   });
 
+  describe('writeUTFBytes', () => {
+    it('Should read a UTF-8 string, and advance the write position accordingly', () => {
+      const value = 'xocA2zBrjMEN0eI4b5tHlemYd1K4CC24';
+      const input = new ByteArray(Buffer.alloc(0));
+
+      input.writeUTFBytes(value);
+
+      expect(input.readUTFBytes(value.length)).toEqual(value);
+      expect(input.readByteOffset).toEqual(value.length);
+    });
+  });
+
   describe('writeByte', () => {
     it('Should write a byte, and advance the write position accordingly', () => {
       const input = new ByteArray(Buffer.alloc(0));
@@ -92,11 +104,13 @@ describe('ByteArray', () => {
 
   describe('writeUTFBytes', () => {
     it('Should write a UTF-8 string, and advance the write position accordingly', () => {
+      const value = 'xocA2zBrjMEN0eI4b5tHlemYd1K4CC24';
       const input = new ByteArray(Buffer.alloc(0));
 
-      input.writeUTFBytes('xocA2zBrjMEN0eI4b5tHlemYd1K4CC24');
+      input.writeUTFBytes(value);
 
-      expect(input.writeByteOffset).toEqual(32);
+      expect(input.writeByteOffset).toEqual(value.length);
+      expect(input.readUTFBytes(value.length)).toEqual(value);
     });
   });
 });
