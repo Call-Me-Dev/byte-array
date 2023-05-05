@@ -89,4 +89,14 @@ describe('ByteArray', () => {
       expect(input.writeByteOffset).toEqual(1);
     });
   });
+
+  describe('writeUTFBytes', () => {
+    it('Should write a UTF-8 string, and advance the write position accordingly', () => {
+      const input = new ByteArray(Buffer.alloc(0));
+
+      input.writeUTFBytes('xocA2zBrjMEN0eI4b5tHlemYd1K4CC24');
+
+      expect(input.writeByteOffset).toEqual(32);
+    });
+  });
 });
