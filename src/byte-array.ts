@@ -32,6 +32,15 @@ export interface IDataInput {
    * @returns {string} A UTF-8 string.
    */
   readUTF(): string;
+
+  /**
+   * Reads a sequence of UTF-8 bytes specified by the length parameter from the byte stream and returns a string.
+   *
+   * @see {@link https://help.adobe.com/fr_FR/FlashPlatform/reference/actionscript/3/flash/utils/ByteArray.html#readUTFBytes() | AS3 ByteArray - readUTFBytes()}
+   * @param {number} length - An unsigned short indicating the length of the UTF-8 bytes.
+   * @returns {string} A string composed of the UTF-8 bytes of the specified length.
+   */
+  readUTFBytes(length: number): string;
 }
 
 export interface IDataOutput {
@@ -86,6 +95,16 @@ export class ByteArray implements IDataInput, IDataOutput {
     this.readByteOffset += length;
 
     return this.buffer.slice(offset, offset + length).toString();
+  }
+
+  readUTFBytes(length: number): string {
+    let value = '';
+
+    for (let i = 0; i < length; i++) {
+      value += String.fromCharCode(this.readByte());
+    }
+
+    return value;
   }
 
   writeByte(value: number): void {

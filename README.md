@@ -17,6 +17,7 @@
     - [`readUnsignedByte(): number`](#readunsignedbyte-method)
     - [`readUnsignedShort(): number`](#readunsignedshort-method)
     - [`readUTF(): string`](#readutf-method)
+    - [`readUTFBytes(length: number): string`](#readutfbytes-method)
     - [`writeByte(value: number): void`](#writebyte-method)
     - [`writeUTFBytes(value: number): void`](#writeutfbytes-method)
 - 🚀 [Getting Started](#getting-started)
@@ -62,6 +63,18 @@ Reads an unsigned 16-bit integer from the byte array.
 Reads a UTF-8 string from the byte array. The string must be preceded by an unsigned short indicating the length in bytes.
 
 **Returns:** A UTF-8 string.
+
+---
+
+#### <a id="readutfbytes-method" name="readutfbytes-method">`readUTFBytes(length: number): string`</a>
+
+Reads a sequence of UTF-8 bytes specified by the length parameter from the byte stream and returns a string.
+
+**Parameters:**
+
+- `length` - An unsigned short indicating the length of the UTF-8 bytes.
+
+**Returns:** A string composed of the UTF-8 bytes of the specified length.
 
 ---
 
