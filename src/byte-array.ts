@@ -43,6 +43,15 @@ export interface IDataOutput {
    * @returns {void}
    */
   writeByte(value: number): void;
+
+  /**
+   * Writes a UTF-8 encoded string to the byte array.
+   *
+   * @see {@link https://help.adobe.com/fr_FR/FlashPlatform/reference/actionscript/3/flash/utils/ByteArray.html#writeUTFBytes()|AS3 ByteArray - writeUTFBytes()}
+   * @param {string} value - The UTF-8 string to be written.
+   * @returns {void}
+   */
+  writeUTFBytes(value: string): void;
 }
 
 export class ByteArray implements IDataInput, IDataOutput {
@@ -85,5 +94,11 @@ export class ByteArray implements IDataInput, IDataOutput {
 
     this.buffer = Buffer.concat([this.buffer, buffer]);
     this.writeByteOffset++;
+  }
+
+  writeUTFBytes(value: string): void {
+    for (let i = 0; i < value.length; i++) {
+      this.writeByte(value.charCodeAt(i));
+    }
   }
 }

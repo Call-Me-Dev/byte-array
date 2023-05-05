@@ -18,6 +18,7 @@
     - [`readUnsignedShort(): number`](#readunsignedshort-method)
     - [`readUTF(): string`](#readutf-method)
     - [`writeByte(value: number): void`](#writebyte-method)
+    - [`writeUTFBytes(value: number): void`](#writeutfbytes-method)
 - 🚀 [Getting Started](#getting-started)
 - 📟 [Commands](#commands)
 - 👏 [Contributing](#contributing)
@@ -71,6 +72,18 @@ Writes an 8-bit integer to the byte array.
 **Parameters:**
 
 - `value` - An 8-bit integer to be written between -128 and 127.
+
+**Returns:** `void`
+
+---
+
+#### <a id="writeutfbytes-method" name="writeutfbytes-method">`writeUTFBytes(value: string): void`</a>
+
+Writes a UTF-8 encoded string to the byte array.
+
+**Parameters:**
+
+- `value` - The UTF-8 string to be written.
 
 **Returns:** `void`
 
